@@ -1,0 +1,90 @@
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #101010;
+  color: white;
+}
+
+.settingsContainer {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer {
+  margin-bottom: 30px;
+}
+
+.inputContainer label {
+  display: block;
+
+  font-size: 20px;
+}
+
+.inputContainer input {
+  padding: 0 20px;
+  width: 200px;
+  height: 50px;
+
+  display: block;
+  border-radius: 5px;
+
+  font-size: 15px;
+  line-height: 46px;
+  letter-spacing: 0.1px;
+
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.settingsButton {
+  max-width: 200px;
+  min-width: 160px;
+  height: 50px;
+  background: transparent;
+  color: #f9004d;
+  border: 2px solid #f9004d;
+  border-radius: 5px;
+
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.settingsButton:hover {
+  color: white;
+  background-color: #f9004d;
+  box-shadow: 0 10px 15px 0 rgb(0 0 0 / 10%);
+}
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  width: 600px;
+  height: 600px;
+
+  background-color: rgb(207, 207, 207);
+}
+
+.square {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+
+  width: 100px;
+  height: 100px;
+
+  border: 5px solid black;
+  transition: all 0.3s ease-in-out;
+}
+
+.square.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}

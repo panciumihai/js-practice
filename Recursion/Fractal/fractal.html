@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="fractal.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="settingsContainer">
+        <div class="inputContainer">
+          <label for="depthInput" type="number">Depth</label>
+          <input id="depthInput" value="3" />
+        </div>
+        <div class="inputContainer">
+          <label for="squareSize" type="number">Square size</label>
+          <input id="squareSize" value="250" />
+        </div>
+        <button id="generateButton" class="settingsButton" type="button">
+          Generate
+        </button>
+      </div>
+      <div id="container" class="container"></div>
+    </div>
+
+    <script src="fractal.js"></script>
+  </body>
+</html>
