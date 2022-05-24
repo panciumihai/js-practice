@@ -17,7 +17,7 @@ books.push('Sapiens');
 books.push('Homo Deus');
 books.push('Meditation');
 books.push('Enzima Miracol');
-books.push('Full stack');
+books.push('Full Stash');
 
 console.log(`Is full? ${books.isFull()}`);
 console.log(books.getValues());
@@ -25,3 +25,62 @@ console.log(books.getValues());
 console.log(`Current size: ${books.getSize()}`);
 
 // ----------------------------- End Stash Test -------------------------
+
+//----------------------------- Double Linked List Test -------------------------
+console.log('');
+console.log('');
+
+const stations = DoublyLinkedList();
+
+stations.insertFirst('Lujerului');
+stations.insertFirst('Gorjului');
+stations.displayForward();
+
+stations.deleteFirst();
+stations.displayForward();
+
+stations.deleteFirst();
+stations.displayForward();
+
+stations.deleteFirst();
+stations.displayForward();
+
+stations.insertLast('Politehnica');
+stations.displayForward();
+
+stations.insertLast('Eroiilor');
+stations.displayForward();
+
+stations.insertLast('Timpuri Noi');
+stations.displayForward();
+
+stations.deleteLast();
+stations.displayForward();
+
+stations.deleteLast();
+stations.displayForward();
+
+stations.deleteLast();
+stations.displayForward();
+
+stations.deleteLast();
+stations.displayForward();
+
+stations.insertLast('Timpuri Noi');
+stations.displayForward();
+
+stations.insertLast('Timpuri Noi');
+stations.displayForward();
+
+stations.insertAfter('Timpuri Noi', 'Preciziei');
+stations.displayForward();
+
+stations.deleteNode('Timpuri Noi');
+stations.displayBackward();
+stations.displayForward();
+
+stations.insertAfter('Timpuri Noi2', 'Preciziei');
+stations.displayForward();
+
+stations.deleteNode('Timpuri Noi');
+stations.displayBackward();
