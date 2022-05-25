@@ -10,24 +10,26 @@ const createTreeNode = (value, left = null, right = null) => {
 };
 
 const BSTTraversalMethods = {
-  inOrder: (node) => {
+  preOrder: (node) => {
     if (node !== null) {
-      inOrder(node.left);
       console.log(node.value);
-      inOrder(node.right);
+      BSTTraversalMethods.preOrder(node.left);
+      BSTTraversalMethods.preOrder(node.right);
     }
   },
 
-  preOrder: (node) => {
-    console.log(node.value);
-    preOrder(node.left);
-    preOrder(node.right);
+  inOrder: (node) => {
+    if (node !== null) {
+      BSTTraversalMethods.inOrder(node.left);
+      console.log(node.value);
+      BSTTraversalMethods.inOrder(node.right);
+    }
   },
 
-  postOrder: () => {
+  postOrder: (node) => {
     if (node !== null) {
-      postOrder(node.left);
-      postOrder(node.right);
+      BSTTraversalMethods.postOrder(node.left);
+      BSTTraversalMethods.postOrder(node.right);
       console.log(node.value);
     }
   },
