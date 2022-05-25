@@ -79,8 +79,30 @@ stations.deleteNode('Timpuri Noi');
 stations.displayBackward();
 stations.displayForward();
 
-stations.insertAfter('Timpuri Noi2', 'Preciziei');
+try {
+  stations.insertAfter('Timpuri Noi2', 'Preciziei');
+} catch (error) {
+  console.log(error.message);
+}
 stations.displayForward();
 
 stations.deleteNode('Timpuri Noi');
 stations.displayBackward();
+
+//----------------------------- Double Linked List Test -------------------------
+
+const binaryTree = BinarySearchTree();
+
+binaryTree.insert(3);
+binaryTree.insert(2);
+binaryTree.insert(1);
+binaryTree.insert(4);
+console.log(root);
+
+binaryTree.remove(3);
+console.log(root);
+
+console.log(binaryTree.search(1));
+console.log(binaryTree.search(15));
+
+binaryTree.traversal();
