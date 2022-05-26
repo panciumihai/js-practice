@@ -1,6 +1,6 @@
 'use strict';
 // ------------------------ Stash Test -------------------------------
-const books = Stash(['Atomic Habits', 'Blue Zones'], 4);
+const books = new Stash(['Atomic Habits', 'Blue Zones'], 4);
 
 console.log(books);
 books.push('Richest man in Babylon');
@@ -29,7 +29,7 @@ console.log('------ Double Linked List -----');
 console.log('');
 console.log('');
 
-const stations = DoublyLinkedList();
+const stations = new DoublyLinkedList();
 
 stations.insertFirst('Lujerului');
 stations.insertFirst('Gorjului');
@@ -90,7 +90,7 @@ stations.displayBackward();
 
 //----------------------------- Binary Search Tree Test -------------------------
 console.log('------ Binary Search Tree -----');
-const binaryTree = BinarySearchTree();
+const binaryTree = new BinarySearchTree();
 
 binaryTree.insert(5);
 binaryTree.insert(3);
@@ -102,17 +102,18 @@ binaryTree.insert(7);
 binaryTree.insert(1);
 binaryTree.insert(12);
 
-console.log(root);
+console.log(binaryTree.root);
 
 binaryTree.remove(3);
-console.log(root);
+console.log(binaryTree.root);
 
 console.log(binaryTree.search(1));
 console.log(binaryTree.search(15));
 
+const traversalMethods = binaryTree.traversalMethods;
 console.log('------ inOrder -----');
 binaryTree.traversal();
 console.log('------ preOrder -----');
-binaryTree.traversal(BSTTraversalMethods.preOrder);
+binaryTree.traversal(traversalMethods.preOrder);
 console.log('------ postOrder -----');
-binaryTree.traversal(BSTTraversalMethods.postOrder);
+binaryTree.traversal(traversalMethods.postOrder);

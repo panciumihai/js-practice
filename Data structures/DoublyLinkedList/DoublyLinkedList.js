@@ -1,47 +1,43 @@
-const createNode = (value, previous = null, next = null) => {
+function ListNode(value, previous = null, next = null) {
   this.value = value;
-  this.previous = next;
-  this.next = previous;
-  return {
-    value,
-    previous,
-    next,
-  };
-};
+  this.next = next;
+  this.previous = previous;
+}
 
-const DoublyLinkedList = () => {
+function DoublyLinkedList() {
   this.first = null;
   this.last = this.first;
   this.length = 0;
+}
 
+Object.assign(DoublyLinkedList.prototype, {
   // ---- insert ----
 
-  const insertFirst = (value) => {
-    if (first) {
-      const newNode = createNode(value, null, first);
+  insertFirst(value) {
+    if (this.first) {
+      const newNode = new ListNode(value, null, this.first);
       newNode.next.previous = newNode;
-      first = newNode;
+      this.first = newNode;
     } else {
-      first = createNode(value);
-      last = first;
+      this.first = new ListNode(value);
+      this.last = this.first;
     }
-    length++;
-  };
+    this.length++;
+  },
 
-  const insertLast = (value) => {
-    console.log(length);
-    if (last) {
-      const newNode = createNode(value, last, null);
-      last.next = newNode;
-      last = newNode;
+  insertLast(value) {
+    if (this.last) {
+      const newNode = new ListNode(value, this.last, null);
+      this.last.next = newNode;
+      this.last = newNode;
     } else {
-      first = last = createNode(value);
+      this.first = this.last = new ListNode(value);
     }
-    length++;
-  };
+    this.length++;
+  },
 
-  const insertAfter = (nodeValue, newValue) => {
-    let currentNode = first;
+  insertAfter(nodeValue, newValue) {
+    let currentNode = this.first;
 
     while (currentNode !== null && currentNode.value !== nodeValue) {
       currentNode = currentNode.next;
@@ -51,62 +47,62 @@ const DoublyLinkedList = () => {
       throw new Error(`"${nodeValue}" value doesn't exist in the list!`);
     }
 
-    const newNode = createNode(newValue, currentNode);
+    const newNode = new ListNode(newValue, currentNode);
 
     if (currentNode.next) {
       newNode.next = currentNode.next;
       currentNode.next.previous = newNode;
     }
     currentNode.next = newNode;
-    length++;
-  };
+    this.length++;
+  },
 
-  // ---- delete ----
+  // // ---- delete ----
 
-  const deleteFirst = () => {
-    if (first) {
-      const nextNode = first.next;
+  deleteFirst() {
+    if (this.first) {
+      const nextNode = this.first.next;
       if (nextNode) {
         nextNode.previous = null;
-        first = nextNode;
+        this.first = nextNode;
       } else {
-        last = first = null;
+        this.last = this.first = null;
       }
-      length--;
+      this.length--;
     }
-  };
+  },
 
-  const deleteLast = () => {
-    if (last) {
-      const previousNode = last.previous;
+  deleteLast() {
+    if (this.last) {
+      const previousNode = this.last.previous;
 
       if (previousNode) {
         previousNode.next = null;
-        last = previousNode;
+        this.last = previousNode;
       } else {
-        last = first = null;
+        this.last = this.first = null;
       }
-      length--;
+      this.length--;
     }
-  };
+  },
 
-  const deleteNode = (nodeValue) => {
-    let currentNode = first;
+  deleteNode(nodeValue) {
+    let currentNode = this.first;
     while (currentNode !== null) {
       if (currentNode.value !== nodeValue) {
         currentNode = currentNode.next;
         continue;
       }
 
-      length--;
+      this.length--;
       if (currentNode.previous === null && currentNode.next === null) {
-        deleteFirst();
+        this.deleteFirst();
         currentNode = currentNode.next;
         continue;
       }
 
       if (currentNode.previous === null && currentNode.next !== null) {
-        deleteFirst();
+        this.deleteFirst();
         currentNode = currentNode.next;
         continue;
       }
@@ -119,20 +115,20 @@ const DoublyLinkedList = () => {
       }
 
       if (currentNode.previous !== null && currentNode.next === null) {
-        deleteLast();
+        this.deleteLast();
         currentNode = currentNode.next;
         continue;
       }
 
       currentNode = currentNode.next;
     }
-  };
+  },
 
-  // ---- display ----
+  // // ---- display ----
 
-  const displayForward = () => {
+  displayForward() {
     let array = [];
-    let currentNode = first;
+    let currentNode = this.first;
 
     while (currentNode !== null) {
       array.push(currentNode.value);
@@ -141,11 +137,11 @@ const DoublyLinkedList = () => {
 
     console.log(array);
     return array;
-  };
+  },
 
-  const displayBackward = () => {
+  displayBackward() {
     let array = [];
-    let currentNode = last;
+    let currentNode = this.last;
 
     while (currentNode !== null) {
       array.push(currentNode.value);
@@ -154,16 +150,5 @@ const DoublyLinkedList = () => {
 
     console.log(array);
     return array;
-  };
-
-  return {
-    insertFirst,
-    insertLast,
-    insertAfter,
-    deleteFirst,
-    deleteLast,
-    deleteNode,
-    displayForward,
-    displayBackward,
-  };
-};
+  },
+});

@@ -1,75 +1,48 @@
-const createTreeNode = (value, left = null, right = null) => {
+function TreeNode(value, left = null, right = null) {
   this.value = value;
-  this.left = value;
-  this.right = value;
-  return {
-    value,
-    left,
-    right,
-  };
-};
+  this.left = left;
+  this.right = right;
+}
 
-const BSTTraversalMethods = {
-  preOrder: (node) => {
-    if (node !== null) {
-      console.log(node.value);
-      BSTTraversalMethods.preOrder(node.left);
-      BSTTraversalMethods.preOrder(node.right);
-    }
-  },
-
-  inOrder: (node) => {
-    if (node !== null) {
-      BSTTraversalMethods.inOrder(node.left);
-      console.log(node.value);
-      BSTTraversalMethods.inOrder(node.right);
-    }
-  },
-
-  postOrder: (node) => {
-    if (node !== null) {
-      BSTTraversalMethods.postOrder(node.left);
-      BSTTraversalMethods.postOrder(node.right);
-      console.log(node.value);
-    }
-  },
-};
-
-const BinarySearchTree = () => {
+function BinarySearchTree() {
   this.root = null;
+}
 
-  const insert = (value) => {
-    let newNode = createTreeNode(value);
+Object.assign(BinarySearchTree.prototype, {
+  // ---- insert ----
+  insert(value) {
+    let newNode = new TreeNode(value);
 
-    if (root === null) {
-      root = newNode;
+    if (this.root === null) {
+      this.root = newNode;
     } else {
-      insertNode(root, newNode);
+      this.insertNode(this.root, newNode);
     }
-  };
+  },
 
-  const insertNode = (node, newNode) => {
+  insertNode(node, newNode) {
     if (newNode.value < node.value) {
       if (node.left === null) node.left = newNode;
-      else insertNode(node.left, newNode);
+      else this.insertNode(node.left, newNode);
     } else {
       if (node.right === null) node.right = newNode;
-      else insertNode(node.right, newNode);
+      else this.insertNode(node.right, newNode);
     }
-  };
+  },
 
-  const remove = (value) => {
-    root = removeNode(root, value);
-  };
+  // ---- remove ----
+  remove(value) {
+    this.root = this.removeNode(this.root, value);
+  },
 
-  const removeNode = (node, value) => {
+  removeNode(node, value) {
     if (node === null) return null;
     else {
       if (value < node.value) {
-        node.left = removeNode(node.left, value);
+        node.left = this.removeNode(node.left, value);
         return node;
       } else if (value > node.value) {
-        node.right = removeNode(node.right, key);
+        node.right = this.removeNode(node.right, value);
         return node;
       } else {
         // remove node with no children
@@ -88,42 +61,62 @@ const BinarySearchTree = () => {
         }
 
         // remove node with two children
-        const temporaryNode = getMinNode(node.right);
+        const temporaryNode = this.getMinNode(node.right);
         node.value = temporaryNode.value;
 
-        node.right = removeNode(node.right, temporaryNode.value);
+        node.right = this.removeNode(node.right, temporaryNode.value);
         return node;
       }
     }
-  };
+  },
 
-  const getMinNode = (node) => {
+  getMinNode(node) {
     if (node.left === null) return node;
-    else getMinNode(node.left);
-  };
+    else this.getMinNode(node.left);
+  },
 
-  const search = (value) => {
-    return searchNode(root, value);
-  };
+  // ---- search ----
+  search(value) {
+    return this.searchNode(this.root, value);
+  },
 
-  const searchNode = (node, value) => {
+  searchNode(node, value) {
     if (node === null) return null;
     if (node.value === value) return node;
     if (node.left === null && node.right === null) return null;
 
-    if (value < node.value) return searchNode(node.left, value);
-    else return searchNode(node.right, value);
-  };
+    if (value < node.value) return this.searchNode(node.left, value);
+    else return this.searchNode(node.right, value);
+  },
 
-  const traversal = (method = BSTTraversalMethods.inOrder) => {
-    method(root);
-  };
+  // ---- traversal ----
+  traversalMethods: {
+    preOrder: (node) => {
+      if (node !== null) {
+        console.log(node.value);
+        traversalMethods.preOrder(node.left);
+        traversalMethods.preOrder(node.right);
+      }
+    },
 
-  return {
-    root,
-    insert,
-    remove,
-    search,
-    traversal,
-  };
-};
+    inOrder: (node) => {
+      if (node !== null) {
+        traversalMethods.inOrder(node.left);
+        console.log(node.value);
+        traversalMethods.inOrder(node.right);
+      }
+    },
+
+    postOrder: (node) => {
+      if (node !== null) {
+        traversalMethods.postOrder(node.left);
+        traversalMethods.postOrder(node.right);
+        console.log(node.value);
+      }
+    },
+  },
+
+  traversal(method = this.traversalMethods.inOrder) {
+    method(this.root);
+  },
+});
