@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script src="./PubSub.js"></script>
+    <script src="./ProductForm.js"></script>
+    <script src="./Checkout.js"></script>
+    <script src="./Cart.js"></script>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <template id="checkoutTemplate">
+      <div class="checkout">
+        <h2>Checkout</h2>
+        <div class="info">
+          <p>Number of products:</p>
+          <p class="productsNumber">0</p>
+        </div>
+      </div>
+    </template>
+
+    <template id="productFormTemplate">
+      <div class="addProduct">
+        <label for="productName">Product name</label>
+        <input id="productName" />
+        <button id="addProductButton">Add product</button>
+      </div>
+    </template>
+
+    <template id="cartTemplate">
+      <div class="cart">
+        <h2>Click on the product to delete it.</h2>
+        <ul>
+          <li>Empty list</li>
+        </ul>
+      </div>
+    </template>
+  </body>
+</html>
