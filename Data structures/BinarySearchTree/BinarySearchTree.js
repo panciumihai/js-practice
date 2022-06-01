@@ -114,6 +114,21 @@ Object.assign(BinarySearchTree.prototype, {
         console.log(node.value);
       }
     },
+
+    bfs: (node) => {
+      if (node === null) return;
+
+      let queue = [node];
+
+      while (queue.length > 0) {
+        let item = queue.shift();
+        console.log(item.value);
+
+        if (item.left === null && item.right === null) continue;
+        if (item.left !== null) queue.push(item.left);
+        if (item.right !== null) queue.push(item.right);
+      }
+    },
   },
 
   traversal(method = this.traversalMethods.inOrder) {

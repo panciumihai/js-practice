@@ -92,24 +92,22 @@ stations.displayBackward();
 console.log('------ Binary Search Tree -----');
 const binaryTree = new BinarySearchTree();
 
-binaryTree.insert(5);
 binaryTree.insert(3);
+binaryTree.insert(1);
 binaryTree.insert(2);
 binaryTree.insert(4);
-
-binaryTree.insert(6);
-binaryTree.insert(7);
-binaryTree.insert(1);
-binaryTree.insert(12);
+binaryTree.insert(5);
 
 console.log(binaryTree.root);
 
-binaryTree.remove(3);
-console.log(binaryTree.root);
+// Am comentat aceste linii pentru a vizualiza mai clar parcurgerile
+// binaryTree.remove(3);
+// console.log(binaryTree.root);
 
-console.log(binaryTree.search(1));
-console.log(binaryTree.search(15));
+// console.log(binaryTree.search(1));
+// console.log(binaryTree.search(15));
 
+// Am atasat o poza pentru a fi mai usor de vizualizat parcurgerile
 const traversalMethods = binaryTree.traversalMethods;
 console.log('------ inOrder -----');
 binaryTree.traversal();
@@ -117,3 +115,5 @@ console.log('------ preOrder -----');
 binaryTree.traversal(traversalMethods.preOrder);
 console.log('------ postOrder -----');
 binaryTree.traversal(traversalMethods.postOrder);
+console.log('------ BFS -----');
+binaryTree.traversal(traversalMethods.bfs);
