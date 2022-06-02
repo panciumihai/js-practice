@@ -41,11 +41,14 @@ Object.assign(Stash.prototype, {
     this.stash.push(value);
   },
   top() {
-    this.stash[this.stash.length - 1];
+    return this.stash[this.stash.length - 1];
   },
   pop() {
     if (this.isEmpty()) return;
     this.stash.pop();
+  },
+  empty() {
+    while (!this.isEmpty()) this.pop();
   },
   isEmpty() {
     return this.stash.length === 0;

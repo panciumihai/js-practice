@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button id="undoButton">Undo</button>
+      <button id="clearButton">Clear</button>
+      <button id="redoButton">Redo</button>
+    </div>
+
+    <div class="container">
+      <input type="color" id="colorPicker" name="colorPicker" value="#e66465" />
+    </div>
+
+    <div id="paintingCanvas" class="paintingCanvas"></div>
+    <script src="../Data structures/Stash/Stash.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

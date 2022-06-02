@@ -1,0 +1,40 @@
+body {
+  background: gainsboro;
+}
+
+.container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container button {
+  margin: 0 20px;
+}
+
+.paintingCanvas {
+  position: relative;
+  margin: 20px auto;
+  width: 500px;
+  height: 500px;
+  background: white;
+
+  border: 1px solid black;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.pixel {
+  position: absolute;
+  background: white;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
