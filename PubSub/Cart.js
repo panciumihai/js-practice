@@ -39,6 +39,6 @@ Object.assign(Cart.prototype, {
     item.parentElement.removeChild(item);
 
     console.log('Cart: publish deleteProduct event :D');
-    pubsub.publish('productDeleted');
+    pubsub.publish('productDeleted', this.products);
   },
 });

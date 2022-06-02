@@ -8,6 +8,9 @@ Object.assign(Checkout.prototype, {
     let form = document.importNode(template.content, true);
     form.querySelector('.checkout').id = this.id;
 
+    const checkbox = form.getElementById('checkoutSubscribedInput');
+    checkbox.addEventListener('click', this.subscribeToggle.bind(this));
+
     console.log(`Checkout: subscribed to event: productAdded`);
     pubsub.subscribe('productsUpdated', this.update.bind(this));
 
@@ -16,14 +19,35 @@ Object.assign(Checkout.prototype, {
 
     container.appendChild(form);
   },
+  subscribeToggle: function (e) {
+    if (e.target.checked) {
+      console.log(`Checkout: subscribed to event: productAdded`);
+      pubsub.subscribe('productsUpdated', this.update.bind(this));
+
+      console.log(`Checkout: subscribed to event: productDeleted`);
+      pubsub.subscribe(
+        'productDeleted',
+        this.decreaseProductsNumber.bind(this)
+      );
+    } else {
+      console.log(`Checkout: UNsubscribed to event: productAdded`);
+      pubsub.unsubscribe('productsUpdated', this.update.bind(this));
+
+      console.log(`Checkout: UNsubscribed to event: productDeleted`);
+      pubsub.unsubscribe(
+        'productDeleted',
+        this.decreaseProductsNumber.bind(this)
+      );
+    }
+  },
   update: function (products) {
     let checkout = document.getElementById(`${this.id}`);
     let productsNumber = checkout.querySelector('.info .productsNumber');
     productsNumber.textContent = products.length;
   },
-  decreaseProductsNumber: function () {
+  decreaseProductsNumber: function (products) {
     let checkout = document.getElementById(`${this.id}`);
     let productsNumber = checkout.querySelector('.info .productsNumber');
-    productsNumber.textContent = +productsNumber.textContent - 1;
+    productsNumber.textContent = products.length;
   },
 });
