@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="container">
-      <button id="undoButton">Undo</button>
-      <button id="clearButton">Clear</button>
-      <button id="redoButton">Redo</button>
-    </div>
+    <div id="buttonsContainer" class="container"></div>
 
     <div class="container">
       <input type="color" id="colorPicker" name="colorPicker" value="#e66465" />
     </div>
 
-    <div id="paintingCanvas" class="paintingCanvas"></div>
+    <div id="paintScreen" class="paintScreen"></div>
+
     <script src="../Data structures/Stash/Stash.js"></script>
+    <script src="../MiniPaint/Button/button.js"></script>
+    <script src="../MiniPaint/Pixel/pixel.js"></script>
+    <script src="../MiniPaint/PaintScreen/paintScreen.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
