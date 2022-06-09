@@ -5,7 +5,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  padding: 50px 10%;
   background: #e7e2dc;
 
   display: flex;
@@ -19,8 +18,8 @@ body {
 }
 
 .taskList {
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 800px;
   border: 2px solid black;
 }
 
@@ -40,4 +39,12 @@ body {
 
 .task.faded {
   opacity: 0.5;
+}
+
+.dotVertical {
+  cursor: n-resize;
+}
+
+.dotHorizontal {
+  cursor: e-resize;
 }
