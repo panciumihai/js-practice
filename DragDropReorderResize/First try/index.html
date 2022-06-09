@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+
+    <script defer src="./Task/task.js"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <h1>My Tasks</h1>
+    <div id="tasksList" class="tasksList"></div>
+
+    <template id="taskTemplate">
+      <div class="task selected" draggable="true">
+        <p>Test</p>
+        <div class="dot dotTop"></div>
+        <div class="dot dotRight"></div>
+        <div class="dot dotBottom"></div>
+        <div class="dot dotLeft"></div>
+      </div>
+    </template>
+  </body>
+</html>

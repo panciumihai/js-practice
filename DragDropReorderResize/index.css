@@ -1,0 +1,43 @@
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  padding: 50px 10%;
+  background: #e7e2dc;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.taskList {
+  height: 500px;
+  width: 500px;
+  border: 2px solid black;
+}
+
+.task {
+  font-size: 22px;
+  line-height: 24px;
+
+  cursor: grab;
+}
+
+.task text {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.task.faded {
+  opacity: 0.5;
+}
